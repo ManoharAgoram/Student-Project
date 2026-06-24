@@ -13,7 +13,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 	Student findByStudentId(String studentId);
 
 	void deleteByStudentId(String studentId);
-	
+
 	List<Student> findByCollegeCollegeId(long collegeId);
 
 }
