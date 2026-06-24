@@ -109,4 +109,12 @@ public class StudentController {
 		return ResponseEntity.ok(response);
 	}
 
+	@GetMapping("/test")
+	public String testApi() {
+	    return "Debug Branch Working";
+	}
+	@GetMapping("/demo2")
+	public String demo2() {
+		return "hello";
+	}
 }
