@@ -108,4 +108,8 @@ public class StudentController {
 		
 		return ResponseEntity.ok(response);
 	}
+	@GetMapping("demo")
+	public String demo() {
+		return "hi";
+	}
 }
