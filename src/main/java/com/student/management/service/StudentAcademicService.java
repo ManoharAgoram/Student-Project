@@ -98,6 +98,6 @@ public class StudentAcademicService {
 		return result;
 	}
 	
-	public void userDetails() {}
+
 
 }
