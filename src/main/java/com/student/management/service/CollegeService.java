@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.student.management.dto.CollegeDTO;
 import com.student.management.entity.College;
+import com.student.management.entity.Student;
 import com.student.management.repository.CollegeRepository;
 
 @Service
@@ -64,4 +65,13 @@ public class CollegeService {
 		repo.deleteById(collegeId);
 		return "College Deleted Successfully";
 	}
+
+	public List<Student> getStudentByCollegeId(long collegeId) {
+
+		College college = repo.findById(collegeId)
+				.orElseThrow(() -> new RuntimeException("College not found with id : " + collegeId));
+
+		return college.getStudents();
+	}
+
 }
