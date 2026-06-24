@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -99,9 +100,9 @@ public class StudentController {
 				.body(new InputStreamResource(file));
 	}
 	
-	@PostMapping("/import/excel")
+	@PostMapping(value = "/import", consumes = "multipart/form-data")
 	
-	public ResponseEntity<String> importExcel(@RequestParam("file") MultipartFile file) throws Exception{
+	public ResponseEntity<String> importExcel(@RequestPart("file") MultipartFile file) throws Exception{
 		
 		String response = service.importStudentsFromExcel(file);
 		
