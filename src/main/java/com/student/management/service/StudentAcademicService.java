@@ -97,7 +97,5 @@ public class StudentAcademicService {
 		}
 		return result;
 	}
-	
-
 
 }
