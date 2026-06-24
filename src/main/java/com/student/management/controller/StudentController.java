@@ -99,17 +99,14 @@ public class StudentController {
 						MediaType.parseMediaType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"))
 				.body(new InputStreamResource(file));
 	}
-	
+
 	@PostMapping(value = "/import", consumes = "multipart/form-data")
-	
-	public ResponseEntity<String> importExcel(@RequestPart("file") MultipartFile file) throws Exception{
-		
+
+	public ResponseEntity<String> importExcel(@RequestPart("file") MultipartFile file) throws Exception {
+
 		String response = service.importStudentsFromExcel(file);
-		
+
 		return ResponseEntity.ok(response);
 	}
-	@GetMapping("demo")
-	public String demo() {
-		return "hi";
-	}
+
 }
