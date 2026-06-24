@@ -2,6 +2,8 @@ package com.student.management.entity;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,5 +45,6 @@ public class Student {
 
 	@ManyToOne
 	@JoinColumn(name = "college_id")
+	@JsonBackReference
 	private College college;
 }

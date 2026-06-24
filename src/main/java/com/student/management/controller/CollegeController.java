@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.student.management.dto.CollegeDTO;
 import com.student.management.entity.College;
+import com.student.management.entity.Student;
 import com.student.management.service.CollegeService;
 
 import jakarta.validation.Valid;
@@ -56,6 +57,14 @@ public class CollegeController {
 		String response = service.deleteCollege(id);
 
 		return ResponseEntity.status(HttpStatus.OK).body(response);
+	}
+
+	@GetMapping("/{collegeId}/students")
+
+	public ResponseEntity<List<Student>> getStudentsByCollege(@PathVariable Long collegeId) {
+
+		return ResponseEntity.ok(service.getStudentsByCollege(collegeId));
+
 	}
 
 }

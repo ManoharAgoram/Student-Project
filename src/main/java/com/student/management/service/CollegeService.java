@@ -6,16 +6,19 @@ import org.springframework.stereotype.Service;
 
 import com.student.management.dto.CollegeDTO;
 import com.student.management.entity.College;
+import com.student.management.entity.Student;
 import com.student.management.repository.CollegeRepository;
+import com.student.management.repository.StudentRepository;
+
+import lombok.AllArgsConstructor;
 
 @Service
+@AllArgsConstructor
 public class CollegeService {
-
+	
+	
 	private CollegeRepository repo;
-
-	public CollegeService(CollegeRepository repo) {
-		this.repo = repo;
-	}
+	private StudentRepository studentRepo;
 
 	public String createCollege(List<CollegeDTO> dto) {
 
@@ -63,5 +66,14 @@ public class CollegeService {
 
 		repo.deleteById(collegeId);
 		return "College Deleted Successfully";
+	}
+	
+	public List<Student> getStudentsByCollege(Long collegeId){
+		
+		College college = repo.findById(collegeId).orElseThrow(()->new RuntimeException("College Not Found"));
+		
+		return studentRepo.findByCollege(college);
+		
+		
 	}
 }
