@@ -1,5 +1,7 @@
 package com.student.management.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,4 +27,7 @@ public class College {
 
 	@Column(name = "university_name")
 	private String universityName;
+	
+	 @OneToMany(mappedBy = "college")
+	    private List<Student> students;
 }

@@ -12,4 +12,6 @@ public interface CollegeRepository extends JpaRepository<College,Long>{
 	
 	College findByCollegeCode(String collegeCode);
 	
+	
+	
 }
