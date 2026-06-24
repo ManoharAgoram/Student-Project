@@ -66,5 +66,13 @@ public class CollegeController {
 		return ResponseEntity.ok(service.getStudentByCollegeId(collegeId));
 
 	}
+	
+	@GetMapping("getCollegeName/{collegeName}")
+	
+	public ResponseEntity<String> getCollegeByName(@PathVariable String collegeName){
+		return ResponseEntity.ok("It is not possible");
+		
+	}
+	
 
 }
